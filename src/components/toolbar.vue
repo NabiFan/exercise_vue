@@ -1,10 +1,12 @@
 <template>
-  <ul>
-  	<router-link :to="'login'">go to login</router-link>
-  	<router-link :to="'count'">go to count</router-link>
-  </ul>
+	<div class="toolbar">
+	  <ul>
+	  	<li><router-link class="title" :to="'login'">login</router-link></li>
+	  	<li><router-link class="title" :to="{name: 'todolist' }">todo list</router-link></li>
+		<li><router-link class="title" :to="{name: 'folderinfo' }">folder info</router-link></li>
+	  </ul>
+  </div>
 </template>
-
 <script>
 export default {
 

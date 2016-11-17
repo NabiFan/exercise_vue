@@ -6,3 +6,56 @@
   color: #2c3e50;
   margin-top: 100px;
 }
+
+.title_a {
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.toolbar {
+  background-color: #452f6d;
+  height: 64px;
+  max-height: 64px;
+  width: auto;
+  padding: 0 16px;
+  margin-top: -100px;
+  display: flex;
+  align-items: center;
+  
+  li {
+      margin-right: 30px;
+      display: inline-block;
+  } 
+  
+  .title {
+    color: #fff;
+    font-size: 20px;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    flex: 1; // important
+  }
+  
+  button {
+    background: none;
+    border: none;
+    margin: 0 6px;
+    height: 48px;
+    min-width: 0;
+    line-height: 48px;
+    padding: 0 6px;
+    width: 48px;
+    border-radius: 50%;
+    font-size: 18px;
+    margin-left: -8px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    color: #fff;
+    
+    &:last-child {
+      margin-right: -8px;
+    }
+  }
+}

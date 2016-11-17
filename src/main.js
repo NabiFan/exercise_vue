@@ -1,3 +1,5 @@
+import './lib/bootstrap/css/bootstrap.min.css'
+
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
@@ -9,9 +11,14 @@ Vue.use(VueRouter)
 Vue.use(VueResource)
 
 // Page
-import login from './page/Login.vue'
-import home from './page/home.vue'
-import count from './components/count.vue'
+import login from './page/Login'
+import home from './page/home'
+import todolist from './components/todolist'
+import hello from './components/Hello'
+import folderinfo from './components/folderinfo'
+
+// const todolist = { template: '<div>Info</div>' }
+
 
 // Router list!
 const router = new VueRouter({
@@ -19,19 +26,30 @@ const router = new VueRouter({
   base: __dirname,
   routes: [
     {
+        path: '/home',
+        component: home,
+        children: [
+            {
+                path: '',
+                name: 'hello',
+                component: hello
+            },
+            {
+                path: 'todolist',
+                name: 'todolist',
+                component: todolist
+            },
+            {
+                path: 'folderinfo',
+                name: 'folderinfo',
+                component: folderinfo
+            }
+        ]
+    },
+    {
       path: '/login',
       name: 'login',
       component: login
-    },
-    {
-      path: '/home',
-      name: 'home',
-      component: home
-    },
-    {
-      path: '/count',
-      name: 'count',
-      component: count
     },
     { path: '/*', redirect: '/login' }
   ],
@@ -43,13 +61,13 @@ const router = new VueRouter({
 // check Login!
 router.beforeEach((to, from, next) => {
   const token = store.state.user.token
-  if (!!token) {
-    if(to.name === 'login'){
+  if (token) {
+    if (to.name === 'login') {
       next({ path: '/home' })
       return
     }
   } else {
-    if(to.name !== 'login'){
+    if (to.name !== 'login') {
       next({ path: '/login' })
       return
     }
@@ -57,11 +75,8 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
-// Create and mount the root instance.
-// replace the content of <div id="app"></div> with App
 new Vue({
-  el: '#app',
-  router: router,
-  store: store,
-  render: h => h( App )
-})
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')

@@ -19,20 +19,21 @@ export const login = ({ commit }, {username, password}) => {
     commit(types.LOGIN, response.body)
     return Promise.resolve()
   }, (response) => {
-    alert('error')
     return Promise.reject()
   })
 }
 
-export const getFolderInfo = ({ commit }, {folderPath, owner_id}) => {
-  const body = {
-    path: folderPath.path,
-    owner_id: owner_id,
-    // page_number: angular.isObject(folderPath) && folderPath.page_number > 0 ? folderPath.page_number : 1,
-    // items_per_page: angular.isObject(folderPath) && folderPath.items_per_page >= 0 ? folderPath.items_per_page : 25,
-    display_note: true,
-    detail: true,
-    id: (folderPath.id) ? folderPath.id : ''
+// todo list
+// add
+export const addToDoList = ({ commit }, {inputInfo}) => {
+  const obj = {
+    value: inputInfo
   }
-  console.log(body)
+  commit(types.ADD_TODO_LIST, obj)
+}
+export const deleteToDoList = ({ commit }, {index}) => {
+  commit(types.DELETE_TODO_LIST, index)
+}
+export const updateToDoList = ({ commit }, obj) => {
+  commit(types.UPDATE_TODO_LIST, obj)
 }

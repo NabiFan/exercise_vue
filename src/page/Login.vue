@@ -1,9 +1,9 @@
 <template>
   <div class="login">
-    <img src="../assets/tit-logo.png" />
+    <p><img src="../assets/tit-logo.png" /></p>
   	<p><input type="text" id="username" placeholder="使用者帳號" v-model="userName" autocomplete="off"></p>
   	<p><input type="password" id="password" placeholder="密碼" v-model="userPassword" @keyup.enter="loginFun"></p>
-  	<p><button @click="loginFun">登入</button></p>
+  	<p><button class="btn btn-primary btn-lg active" @click="loginFun">登入</button></p>
   </div>
 </template>
 
@@ -23,14 +23,15 @@ export default {
       'login'
     ]),
     loginFun: function () {
-      console.log('user : ', this.userName)
       this.login({
         username: this.userName,
         password: this.userPassword
       })
       .then(() => {
-        console.log('success!!')
         this.$router.push('/home')
+      })
+      .catch(() => {
+        alert('error')
       })
     }
   }

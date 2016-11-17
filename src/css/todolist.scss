@@ -1,0 +1,46 @@
+$row-color: #333333;
+
+.rolldown-list {
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+.rolldown-list li {
+  padding: 1em;
+  margin-bottom: .125em;
+  display: block;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.rolldown-list li:nth-child(2n) {
+  background-color: lighten($row-color, 10%);
+  
+}
+.rolldown-list li:nth-child(2n+1) {
+  background-color: $row-color;
+}
+
+
+#myList {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: 50%;
+  margin-left: -25%;
+  margin-top: 20px;
+}
+
+.btnDelete {
+  float: right;
+  color: #333;
+  background: #ccc;
+  text-transform: uppercase;
+  border: none;
+  padding: .5em 1em;
+}
+.btnDelete:hover {
+  background: #ddd;
+}
