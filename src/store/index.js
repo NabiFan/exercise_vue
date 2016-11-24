@@ -1,15 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { state, mutations } from './mutations.js'
-import * as getters from './getters.js'
-import * as actions from './actions.js'
+import login from './modules/login.js'
+import todolist from './modules/todolist.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state,
-  mutations,
-  getters,
-  actions,
+  modules: {
+    login,
+    todolist
+  },
   strict: true
 })

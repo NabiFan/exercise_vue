@@ -60,7 +60,7 @@ const router = new VueRouter({
 
 // check Login!
 router.beforeEach((to, from, next) => {
-  const token = store.state.user.token
+  const token = store.state.login.user.token
   if (token) {
     if (to.name === 'login') {
       next({ path: '/home' })
