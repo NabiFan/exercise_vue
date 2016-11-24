@@ -7,7 +7,7 @@
   		<span class="title_a">todolist infomation : </span>
   		<ul class="rolldown-list" >
 	  		<li v-for="(item, index) in todolist">
-          <inputModify :item="item"  :actiontype="'updateToDoList'" :index="index" ></inputModify>
+          <inputModify :item="item"  :updateData="updateList" :index="index" ></inputModify>
 	  			<button class="btnDelete" @click="deleteList(index)">X</button>
 	  		</li>
 	  	</ul>
@@ -54,6 +54,9 @@ export default {
     },
     deleteList: function (index) {
       this.deleteToDoList({index: index})
+    },
+    updateList: function(obj){
+      this.updateToDoList(obj)
     }
   }
 }

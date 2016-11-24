@@ -1,7 +1,7 @@
 <template>
   <div id="inputModify">
     <span v-if="!showmode"> 
-      <input  type="checkbox" v-model="checked">
+      <input type="checkbox" v-model="checked">
       <span :class="{'checkedl': checked}" @click="changeMode">{{ item.value }}</span>
     </span>
     <input 
@@ -9,8 +9,8 @@
       v-if="showmode"
       v-model="inputInfo"
       ref="'hello'"
-      @blur="updateData()" 
-      @keyup.enter="updateData()" />
+      @blur="updateDataFun()" 
+      @keyup.enter="updateDataFun()" />
   </div>
 </template>
 
@@ -32,7 +32,8 @@ export default {
   props: [
     'item',
     'index',
-    'actiontype'
+    'actiontype',
+    'updateData'
   ],
   watch:{
     checked: function () {
@@ -42,15 +43,20 @@ export default {
   methods: {
     changeMode: function () {
       this.showmode = true
-      document.getElementById("myAnchor").focus();
     },
-    updateData: function () {
+    updateDataFun: function () {
       this.showmode = false
-      this.$store.dispatch(this.actiontype, {
+      this.updateData({
         index: this.index,
         inputInfo: this.inputInfo,
         checked: this.checked
       })
+      
+      // this.$store.dispatch(this.actiontype, {
+      //   index: this.index,
+      //   inputInfo: this.inputInfo,
+      //   checked: this.checked
+      // })
     }
   }
 }
@@ -63,5 +69,8 @@ export default {
   }
   .checkedl {
     text-decoration: line-through;
+  }
+  #inputModify input {
+    color: black;
   }
 </style>

@@ -7,7 +7,6 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import inputModify from './inputModify'
-import autoFocus from '../directives/autoFocus'
 
 export default {
   name: 'count',
@@ -18,9 +17,6 @@ export default {
   },
   components: {
     'inputModify': inputModify
-  },
-  directives: {
-    focus: autoFocus
   },
   computed: {
     ...mapGetters({

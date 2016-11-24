@@ -3,7 +3,7 @@ import * as types from '../mutations_type.js'
 const state = {
   todolist: [{ 
     value: '123',
-    checked: false 
+    checked: false
   }]
 }
 
