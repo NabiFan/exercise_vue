@@ -21,7 +21,7 @@ import inputModify from './inputModify'
 import autoFocus from '../directives/autoFocus'
 
 export default {
-  name: 'count',
+  name: 'todolist',
   data () {
     return {
       inputData: ''

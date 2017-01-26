@@ -13,9 +13,10 @@ Vue.use(VueResource)
 // Page
 import login from './page/Login'
 import home from './page/home'
-import todolist from './components/todolist'
-import hello from './components/Hello'
-import folderinfo from './components/folderinfo'
+import components from './components/index'
+// import todolist from './components/todolist'
+// import hello from './components/Hello'
+// import folderinfo from './components/folderinfo'
 
 // const todolist = { template: '<div>Info</div>' }
 
@@ -32,17 +33,22 @@ const router = new VueRouter({
             {
                 path: '',
                 name: 'hello',
-                component: hello
+                component: components.hello
             },
             {
                 path: 'todolist',
                 name: 'todolist',
-                component: todolist
+                component: components.todolist
             },
             {
                 path: 'folderinfo',
                 name: 'folderinfo',
-                component: folderinfo
+                component: components.folderinfo
+            },
+            {
+                path: 'shoppingCar',
+                name: 'shoppingCar',
+                component: components.shoppingCar
             }
         ]
     },
