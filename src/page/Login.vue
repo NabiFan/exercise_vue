@@ -28,6 +28,8 @@ export default {
         password: this.userPassword
       })
       .then(() => {
+        console.log('run');
+        
         this.$router.push('/home')
       })
       .catch(() => {

@@ -1,5 +1,5 @@
+// login
 export const LOGIN = 'LOGIN'
-export const GET_FOLDER_INFO = 'GET_FOLDER_INFO'
 
 // todo list
 export const ADD_TODO_LIST = 'ADD_TODO_LIST'

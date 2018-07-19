@@ -1,7 +1,7 @@
 <template>
   <div id="myList">
   	<span class="title_a">please enter: </span>
-  	<input v-model="inputData" v-focus @keyup.enter="addList">
+  	<input v-model="inputData" v-inputFocus @keyup.enter="addList">
   	<div>
   		<hr />
   		<span class="title_a">todolist infomation : </span>
@@ -18,7 +18,6 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import inputModify from './inputModify'
-import autoFocus from '../directives/autoFocus'
 
 export default {
   name: 'todolist',
@@ -29,9 +28,6 @@ export default {
   },
   components: {
     'inputModify': inputModify
-  },
-  directives: {
-    focus: autoFocus
   },
   computed: {
     ...mapGetters({

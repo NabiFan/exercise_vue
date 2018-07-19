@@ -5,7 +5,7 @@
       <span :class="{'checkedl': checked}" @click="changeMode">{{ item.value }}</span>
     </span>
     <input 
-      v-focus
+      v-inputFocus
       v-if="showmode"
       v-model="inputInfo"
       ref="'hello'"
@@ -15,13 +15,8 @@
 </template>
 
 <script>
-import autoFocus from '../directives/autoFocus'
-
 export default {
   name: 'count',
-  directives: {
-    focus: autoFocus
-  },
   data: function () {
     return {
       showmode: false,
